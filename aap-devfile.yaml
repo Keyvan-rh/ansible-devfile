@@ -1,56 +1,19 @@
 schemaVersion: 2.2.0
 metadata:
-  generateName: quarkus-api-example
-attributes:
-  controller.devfile.io/storage-type: ephemeral
+  name: multi-tier-devfile
+  version: 1.0.0
 projects:
-  - name: frontend
+  - name: sno-aap
     git:
       remotes:
-        origin: 'https://github.com/RedHatWorkshops/openshiftv4-odo-workshop-backend.git'
+        origin: 'https://github.com/Keyvan-rh/sno-aap.git'
 components:
-  - name: tools
-    container:
-      image: quay.io/devfile/universal-developer-image:ubi8-latest
-      env:
-        - name: QUARKUS_HTTP_HOST
-          value: 0.0.0.0
-      endpoints:
-        - exposure: none
-          name: debug
-          protocol: tcp
-          targetPort: 5005
-        - exposure: public
-          name: list-all-food
-          protocol: http
-          targetPort: 8080
-          path: /food
-      volumeMounts:
-        - name: m2
-          path: /home/user/.m2
-      memoryLimit: 6G
-      mountSources: true
-
-  - name: ubi-minimal
-    container:
-      image: registry.access.redhat.com/ubi8/ubi-minimal
-      command: ['tail']
-      args: ['-f', '/dev/null']
-      memoryLimit: 64M
-      mountSources: true
-
   - name: ansible
     container:
       image: 'registry.redhat.io/ansible-automation-platform-25/ansible-dev-tools-rhel8:24.9.0-18'
       env:
         - name: POSTGRESQL_USER
           value: user
-        - name: POSTGRESQL_PASSWORD
-          value: password
-        - name: POSTGRESQL_DATABASE
-          value: food_db
-        - name: PGDATA
-          value: /tmp/pgdata
   - name: m2
     volume:
       size: 1G
