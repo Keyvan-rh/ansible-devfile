@@ -1,6 +1,11 @@
 schemaVersion: 2.2.2
 metadata:
   name: ansible-demo
+projects:
+  - name: frontend
+    git:
+      remotes:
+        origin: 'https://github.com/Keyvan-rh/ansible-devfile.git'
 components:
   - name: tooling-container
     container:
