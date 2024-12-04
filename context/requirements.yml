@@ -4,3 +4,4 @@ collections:
   - name: ansible.posix
   - name: ansible.scm
   - name: ansible.utils
+  - name: ansible.controller
