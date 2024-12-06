@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tooling-container
     container:
-      image: quay.io/kpisheva/ansible-tools:v1.0
+      image: quay.io/kpisheva/demo/ansible-tools:v1.0
       memoryRequest: 256M
       memoryLimit: 6Gi
       cpuRequest: 250m
