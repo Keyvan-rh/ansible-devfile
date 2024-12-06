@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tooling-container
     container:
-      image: ghcr.io/ansible/ansible-workspace-env-reference:latest
+      image: quay.io/kpisheva/ansible-tools:v1.0
       memoryRequest: 256M
       memoryLimit: 6Gi
       cpuRequest: 250m
